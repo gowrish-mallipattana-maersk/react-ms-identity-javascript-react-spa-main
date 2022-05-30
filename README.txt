@@ -13,6 +13,7 @@ NOTES
 ========================================
 For printing and decoding JWT - see App.jsx
 For printing user info - see ProfileData.jsx
+For auth-config 'graph' URL - see authConfig.js
 
 ========================================
 ISSUE - CORS ISSUE WITH GRAPH

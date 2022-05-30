@@ -17,6 +17,9 @@ export async function callMsGraph(accessToken) {
         headers: headers
     };
 
+    // debug - print Headers
+    //console.log("DEBUG - graph.js: Headers: ", headers)
+
     return fetch(graphConfig.graphMeEndpoint, options)
         .then(response => response.json())
         .catch(error => console.log(error));

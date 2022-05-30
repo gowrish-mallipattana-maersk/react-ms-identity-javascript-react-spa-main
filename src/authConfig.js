@@ -5,6 +5,7 @@
 
 import { LogLevel } from "@azure/msal-browser";
 
+console.log("DEBUG - authConfig.js: env REACT_APP_GRAPH_URL is: ", process.env.REACT_APP_GRAPH_URL)
 /**
  * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL.js configuration parameters, visit:
@@ -64,5 +65,8 @@ export const loginRequest = {
 export const graphConfig = {
     //graphMeEndpoint: "https://graph.microsoft.com" // this gave CORS error
     //graphMeEndpoint: "https://graph.microsoft.com/v1.0/me" // this did NOT give CORS error
-    graphMeEndpoint: "https://graph.microsoft.com/v1.0/me" // this did NOT give CORS error
+    //graphMeEndpoint: "https://graph.microsoft.com/v1.0/me" // this did NOT give CORS error
+
+   graphMeEndpoint: process.env.REACT_APP_GRAPH_URL
+
 };

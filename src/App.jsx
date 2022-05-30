@@ -24,10 +24,10 @@ const ProfileContent = () => {
         }).then((response) => {
 
             // DEBUG - Display token and its decoded content
-            console.log ("DEBUG - Access Token is: ", response.accessToken);
+            console.log ("DEBUG - App.jsx: Access Token is: ", response.accessToken);
             var decoded = jwt_decode(response.accessToken);
-            console.log ("DEBUG - Decoded token is: ", decoded);
-            console.log ("DEBUG - aud claim is: ", decoded.aud)
+            console.log ("DEBUG - App.jsx: Decoded token is: ", decoded);
+            console.log ("DEBUG - App.jsx: aud claim is: ", decoded.aud)
             //
 
             callMsGraph(response.accessToken).then(response => setGraphData(response));
