@@ -7,8 +7,6 @@ import { callMsGraph } from "./graph";
 import Button from "react-bootstrap/Button";
 import "./styles/App.css";
 
-import jwt_decode from "jwt-decode";
-
 /**
  * Renders information about the signed-in user or a button to retrieve data about the user
  */
@@ -22,14 +20,6 @@ const ProfileContent = () => {
             ...loginRequest,
             account: accounts[0]
         }).then((response) => {
-
-            // DEBUG - Display token and its decoded content
-            console.log ("DEBUG - Access Token is: ", response.accessToken);
-            var decoded = jwt_decode(response.accessToken);
-            console.log ("DEBUG - Decoded token is: ", decoded);
-            console.log ("DEBUG - aud claim is: ", decoded.aud)
-            //
-
             callMsGraph(response.accessToken).then(response => setGraphData(response));
         });
     }
@@ -37,7 +27,7 @@ const ProfileContent = () => {
     return (
         <>
             <h5 className="card-title">Welcome {accounts[0].name}</h5>
-            {graphData ?
+            {graphData ? 
                 <ProfileData graphData={graphData} />
                 :
                 <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
@@ -49,7 +39,7 @@ const ProfileContent = () => {
 /**
  * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
  */
-const MainContent = () => {
+const MainContent = () => {    
     return (
         <div className="App">
             <AuthenticatedTemplate>

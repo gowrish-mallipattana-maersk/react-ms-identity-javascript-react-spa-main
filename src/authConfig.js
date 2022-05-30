@@ -18,7 +18,7 @@ export const msalConfig = {
         //redirectUri: "window.location.origin"
     },
     cache: {
-        cacheLocation: "sessionStorage", // This configures where your cache will be stored
+        //cacheLocation: "sessionStorage", // This configures where your cache will be stored
         cacheLocation: "localStorage", // This configures where your cache will be stored
         storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     },
@@ -63,5 +63,6 @@ export const loginRequest = {
  */
 export const graphConfig = {
     //graphMeEndpoint: "https://graph.microsoft.com" // this gave CORS error
+    //graphMeEndpoint: "https://graph.microsoft.com/v1.0/me" // this did NOT give CORS error
     graphMeEndpoint: "https://graph.microsoft.com/v1.0/me" // this did NOT give CORS error
 };
